@@ -22,6 +22,10 @@ export class Painel {
     // Protege contra chamadas sem event e garante tipagem segura
     const target = event?.target as HTMLTextAreaElement | undefined;
     this.resposta = target ? target.value : '';
-    console.log(this.resposta);
+    // console.log(this.resposta);
+  }
+
+  public verificarResposta(): void {
+    console.log('Verificando resposta:', this.resposta);
   }
 }
