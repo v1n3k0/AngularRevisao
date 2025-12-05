@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
 })
 
 export class Progresso {
-  public progresso: number = 80;
+  public progresso: number = 50;
 }
