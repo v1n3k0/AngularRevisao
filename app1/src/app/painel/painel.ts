@@ -16,4 +16,8 @@ export class Painel {
   public instrucao: string = 'Traduza a frase:';
 
   constructor() { console.log(this.frases);  }
+
+  public atualizaResposta(): void {
+    console.log('Resposta atualizada');
+  }
 }
