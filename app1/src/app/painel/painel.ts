@@ -19,6 +19,8 @@ export class Painel {
   public rodada: number = 0;
   public rodadaFrase: Frase;
 
+  public progressos: number = 0;
+
   constructor() { 
     this.rodadaFrase = this.frases[this.rodada];
     console.log(this.rodadaFrase);
@@ -37,6 +39,9 @@ export class Painel {
       
       this.rodada++;
       console.log( this.rodada);
+
+      this.progressos += (100 / this.frases.length);
+      console.log(this.progressos);
 
       this.rodadaFrase = this.frases[this.rodada];
       console.log(this.rodadaFrase);
