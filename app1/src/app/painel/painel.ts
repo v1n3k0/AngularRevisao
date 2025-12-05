@@ -8,16 +8,20 @@ import { FRASES } from './frases-mock';
   selector: 'app-painel',
   imports: [Progresso, Tentativas],
   templateUrl: './painel.html',
-  styleUrl: './painel.css',
+  styleUrls: ['./painel.css'],
 })
 export class Painel {
 
   public frases: Frase[] = FRASES;
   public instrucao: string = 'Traduza a frase:';
+  public resposta: string = '';
 
   constructor() { console.log(this.frases);  }
 
-  public atualizaResposta(): void {
-    console.log('Resposta atualizada');
+  public atualizaResposta(event: Event | undefined): void {
+    // Protege contra chamadas sem event e garante tipagem segura
+    const target = event?.target as HTMLTextAreaElement | undefined;
+    this.resposta = target ? target.value : '';
+    console.log(this.resposta);
   }
 }
