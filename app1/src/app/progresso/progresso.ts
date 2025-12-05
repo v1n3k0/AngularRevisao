@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-progresso',
@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
 })
 
 export class Progresso {
-  public progresso: number = 50;
+  @Input() public progressos: number = 0;
 }

@@ -38,7 +38,6 @@ export class Painel {
       alert('Resposta correta!');
       
       this.rodada++;
-      console.log( this.rodada);
 
       this.progressos += (100 / this.frases.length);
       console.log(this.progressos);
