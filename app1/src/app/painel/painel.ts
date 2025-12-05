@@ -31,7 +31,17 @@ export class Painel {
     // console.log(this.resposta);
   }
 
-  public verificarResposta(): void {
-    console.log('Verificando resposta:', this.resposta);
+  public verificarResposta(): void {    
+    if(this.rodadaFrase.frasePtBr === this.resposta){
+      alert('Resposta correta!');
+      
+      this.rodada++;
+      console.log( this.rodada);
+
+      this.rodadaFrase = this.frases[this.rodada];
+      console.log(this.rodadaFrase);
+    }else{
+      alert('Resposta incorreta. Tente novamente!');
+    }
   }
 }
