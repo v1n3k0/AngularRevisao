@@ -55,11 +55,6 @@ export class Painel {
 
       if (this.tentativas === -1) {
         this.encerrarJogo.emit('derrota');
-        // Reinicia o jogo
-        this.rodada = 0;
-        this.progressos = 0;
-        this.tentativas = 3;
-        this.atualizaRodada();
       }
     }
   }
