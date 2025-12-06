@@ -49,7 +49,6 @@ export class Painel {
       }
 
       this.atualizaRodada();
-
     } else {
       this.tentativas--;
 

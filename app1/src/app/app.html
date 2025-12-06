@@ -5,11 +5,23 @@
 </div>
 
 <ng-template #fimDeJogo>
-    <div class="container text-center mt-5">
+    <div *ngIf="tipoEncerramento === 'derrota'; else fimDeJogoVitoria" class="container text-center mt-5">
         <div class="row">
             <div class="col">
                 <h3 style="color: red;">O jogo acabou!</h3>
-                <!-- <button class="btn btn-primary mt-3" (click)="reiniciarJogo()">Reiniciar Jogo</button> -->
+                <button class="btn btn-primary mt-3" (click)="reiniciarJogo()">Reiniciar Jogo</button>
             </div>
         </div>
     </div>
+</ng-template>
+
+<ng-template #fimDeJogoVitoria>
+    <div class="container text-center mt-5">
+        <div class="row">
+            <div class="col">
+                <h3 style="color: green;">Parabéns! Você venceu!</h3>
+                <button class="btn btn-primary mt-3" (click)="reiniciarJogo()">Reiniciar Jogo</button>
+            </div>
+        </div>
+    </div>
+</ng-template>

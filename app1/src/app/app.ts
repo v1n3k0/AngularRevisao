@@ -13,8 +13,15 @@ import { CommonModule } from '@angular/common';
 })
 export class App {
   public jogoEmAdamento: boolean = true;
+  public tipoEncerramento: string = '';
 
   public encerrarJogo(tipo: string): void {
     this.jogoEmAdamento = false;
+    this.tipoEncerramento = tipo;
+  }
+
+  public reiniciarJogo(): void {
+    this.jogoEmAdamento = true;
+    this.tipoEncerramento = '';
   }
 }
