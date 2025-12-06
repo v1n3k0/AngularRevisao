@@ -20,9 +20,6 @@ export class Tentativas {
     new Coracao(true),
   ];
 
-  /**
-   *
-   */
   constructor() {
     console.log(this.coracoes);
   }

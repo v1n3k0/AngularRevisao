@@ -21,6 +21,8 @@ export class Painel {
 
   public progressos: number = 0;
 
+  public tentativas: number = 3;
+
   constructor() { 
     this.atualizaRodada();
   }
@@ -44,8 +46,19 @@ export class Painel {
       this.atualizaRodada();
 
     }else{
-      alert('Resposta incorreta. Tente novamente!');
+      this.tentativas--;
+
+      if(this.tentativas === -1){
+        alert('Você perdeu todas as tentativas! O jogo será reiniciado.');
+        // Reinicia o jogo
+        this.rodada = 0;
+        this.progressos = 0;
+        this.tentativas = 3;
+        this.atualizaRodada();
+      }
     }
+
+    console.log(this.tentativas);
   }
 
   public atualizaRodada(): void {
