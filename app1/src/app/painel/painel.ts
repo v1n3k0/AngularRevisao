@@ -36,12 +36,14 @@ export class Painel {
 
   public verificarResposta(): void {
     if (this.rodadaFrase.frasePtBr === this.resposta) {
-      alert('Resposta correta!');
-
       this.rodada++;
 
       this.progressos += (100 / this.frases.length);
       console.log(this.progressos);
+
+      if (this.rodada === this.frases.length) {
+        alert('Parabéns! Você completou todas as frases!');
+      }
 
       this.atualizaRodada();
 

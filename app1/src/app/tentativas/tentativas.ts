@@ -25,7 +25,11 @@ export class Tentativas implements OnChanges {
 
       this.coracoes[indice - 1].cheio = false;
     }
-    console.log('Recebido: ',this.tentativas);
+    if(this.tentativas === 3){
+      for(let i = 0; i < this.coracoes.length; i++){
+        this.coracoes[i].cheio = true;
+      }
+    }
   }
 
   constructor() {
