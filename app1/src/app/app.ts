@@ -15,7 +15,6 @@ export class App {
   public jogoEmAdamento: boolean = true;
 
   public encerrarJogo(tipo: string): void {
-    alert(`O jogo acabou! O tipo é: ${tipo}`);
     this.jogoEmAdamento = false;
   }
 }
