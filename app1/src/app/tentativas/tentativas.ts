@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Coracao } from '../shared/coracao.model';
 
@@ -11,8 +11,7 @@ import { Coracao } from '../shared/coracao.model';
 })
 
 export class Tentativas {
-  public coracaoVazio: string = '/assets/coracao_vazio.png';
-  public coracaoCheio: string = '/assets/coracao_cheio.png';
+  @Input() public tentativas: number = 3;
 
   public coracoes: Coracao[] = [
     new Coracao(true),
@@ -22,5 +21,6 @@ export class Tentativas {
 
   constructor() {
     console.log(this.coracoes);
+    console.log('Recebido: ',this.tentativas);
   }
 }
