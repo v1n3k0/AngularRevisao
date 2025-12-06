@@ -28,6 +28,5 @@ export class Tentativas implements OnChanges {
   }
 
   constructor() {
-    console.log(this.coracoes);
   }  
 }
