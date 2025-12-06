@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Progresso } from '../progresso/progresso';
 import { Tentativas } from '../tentativas/tentativas';
 import { Frase } from '../shared/frase.model';
@@ -6,6 +6,7 @@ import { FRASES } from './frases-mock';
 
 @Component({
   selector: 'app-painel',
+  standalone: true,
   imports: [Progresso, Tentativas],
   templateUrl: './painel.html',
   styleUrls: ['./painel.css'],
@@ -22,6 +23,8 @@ export class Painel {
   public progressos: number = 0;
 
   public tentativas: number = 3;
+
+  @Output() public encerrarJogo: EventEmitter<string> = new EventEmitter();
 
   constructor() {
     this.atualizaRodada();
@@ -42,7 +45,7 @@ export class Painel {
       console.log(this.progressos);
 
       if (this.rodada === this.frases.length) {
-        alert('Parabéns! Você completou todas as frases!');
+        this.encerrarJogo.emit('vitoria');
       }
 
       this.atualizaRodada();
@@ -51,7 +54,7 @@ export class Painel {
       this.tentativas--;
 
       if (this.tentativas === -1) {
-        alert('Você perdeu todas as tentativas! O jogo será reiniciado.');
+        this.encerrarJogo.emit('derrota');
         // Reinicia o jogo
         this.rodada = 0;
         this.progressos = 0;

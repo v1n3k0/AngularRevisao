@@ -5,10 +5,13 @@ import { Painel } from './painel/painel';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
   imports: [RouterOutlet, TopoComponent, Painel],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('app1');
+  public encerrarJogo(tipo: string): void {
+    alert(`O jogo acabou! O tipo é: ${tipo}`);
+  }
 }
