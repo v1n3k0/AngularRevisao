@@ -17,13 +17,12 @@ export class Painel {
   public resposta: string = '';
 
   public rodada: number = 0;
-  public rodadaFrase: Frase;
+  public rodadaFrase: Frase = this.frases[this.rodada];
 
   public progressos: number = 0;
 
   constructor() { 
-    this.rodadaFrase = this.frases[this.rodada];
-    console.log(this.rodadaFrase);
+    this.atualizaRodada();
   }
 
   public atualizaResposta(event: Event | undefined): void {
@@ -42,10 +41,17 @@ export class Painel {
       this.progressos += (100 / this.frases.length);
       console.log(this.progressos);
 
-      this.rodadaFrase = this.frases[this.rodada];
-      console.log(this.rodadaFrase);
+      this.atualizaRodada();
+
     }else{
       alert('Resposta incorreta. Tente novamente!');
     }
+  }
+
+  public atualizaRodada(): void {
+    this.rodadaFrase = this.frases[this.rodada];
+      console.log(this.rodadaFrase);
+      
+      this.resposta = '';
   }
 }
