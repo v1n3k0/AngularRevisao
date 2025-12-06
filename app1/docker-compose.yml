@@ -1,0 +1,21 @@
+services:
+  # Serviço de desenvolvimento: roda `ng serve` e mapeia porta 4200
+  angular-dev:
+    image: node:lts-alpine3.23
+    working_dir: /app
+    volumes:
+      - ./:/app
+      - /app/node_modules
+    command: sh -c "npm install && npm start -- --host 0.0.0.0 --port 4200"
+    ports:
+      - "4200:4200"
+    container_name: angular-dev
+    environment:
+      - NODE_ENV=development
+    restart: unless-stopped
+    networks:
+      - angular-network
+
+networks:
+  angular-network:
+    driver: bridge
