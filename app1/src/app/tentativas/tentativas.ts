@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Coracao } from '../shared/coracao.model';
 
@@ -10,7 +10,7 @@ import { Coracao } from '../shared/coracao.model';
   styleUrl: './tentativas.css',
 })
 
-export class Tentativas {
+export class Tentativas implements OnChanges {
   @Input() public tentativas: number = 3;
 
   public coracoes: Coracao[] = [
@@ -19,8 +19,16 @@ export class Tentativas {
     new Coracao(true),
   ];
 
-  constructor() {
-    console.log(this.coracoes);
+  ngOnChanges(): void {    
+    if(this.tentativas !== this.coracoes.length){
+      let indice = this.coracoes.length - this.tentativas;
+
+      this.coracoes[indice - 1].cheio = false;
+    }
     console.log('Recebido: ',this.tentativas);
   }
+
+  constructor() {
+    console.log(this.coracoes);
+  }  
 }

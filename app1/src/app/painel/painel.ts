@@ -23,7 +23,7 @@ export class Painel {
 
   public tentativas: number = 3;
 
-  constructor() { 
+  constructor() {
     this.atualizaRodada();
   }
 
@@ -34,10 +34,10 @@ export class Painel {
     // console.log(this.resposta);
   }
 
-  public verificarResposta(): void {    
-    if(this.rodadaFrase.frasePtBr === this.resposta){
+  public verificarResposta(): void {
+    if (this.rodadaFrase.frasePtBr === this.resposta) {
       alert('Resposta correta!');
-      
+
       this.rodada++;
 
       this.progressos += (100 / this.frases.length);
@@ -45,10 +45,10 @@ export class Painel {
 
       this.atualizaRodada();
 
-    }else{
+    } else {
       this.tentativas--;
 
-      if(this.tentativas === -1){
+      if (this.tentativas === -1) {
         alert('Você perdeu todas as tentativas! O jogo será reiniciado.');
         // Reinicia o jogo
         this.rodada = 0;
@@ -57,14 +57,12 @@ export class Painel {
         this.atualizaRodada();
       }
     }
-
-    console.log(this.tentativas);
   }
 
   public atualizaRodada(): void {
     this.rodadaFrase = this.frases[this.rodada];
-      console.log(this.rodadaFrase);
-      
-      this.resposta = '';
+    console.log(this.rodadaFrase);
+
+    this.resposta = '';
   }
 }
